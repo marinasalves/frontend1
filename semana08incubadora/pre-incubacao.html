@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- Declara o documento como HTML5 para o navegador -->
+
+<html lang="pt-BR">
+  <!-- Define o idioma da página como Português do Brasil para acessibilidade e SEO -->
+  <head>
+    <!-- Início do cabeçalho do documento: contém metadados e links -->
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres como UTF-8 (suporta acentos) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ajusta a escala em dispositivos móveis (layout responsivo) -->
+    <meta
+      name="description"
+      content="Página do Núcleo Incubador de Empreendimentos do Ifes de Alegre."
+    />
+    <!-- Descrição da página para buscadores -->
+
+    <meta name="theme-color" content="#068d01" />
+    <!-- Cor do tema no navegador mobile (barra superior) -->
+    <meta property="og:title" content="Núcleo Incubador Ifes de Alegre" />
+    <!-- Título para compartilhamento (Open Graph) -->
+    <meta
+      property="og:description"
+      content="Ambiente de inovação do Ifes – Campus de Alegre."
+    />
+    <!-- Descrição para compartilhamento (Open Graph) -->
+    <meta property="og:type" content="website" />
+    <!-- Tipo de conteúdo (site) para Open Graph -->
+
+    <title>Núcleo Incubador Ifes de Alegre</title>
+    <!-- Título exibido na aba do navegador -->
+
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Importa o arquivo de estilos principal -->
+    <link rel="icon" href="/favicon.ico" />
+    <!-- Ícone (favicon) exibido na aba do navegador -->
+  </head>
+  <!-- Fim da seção de cabeçalho -->
+
+  <script>
+  (function() {
+      const header = document.querySelector('.cabecalho-principal');
+      const btn = header.querySelector('.menu-toggle');
+      const menu = document.getElementById('menu');
+
+      btn.addEventListener('click', () => {
+        const aberto = header.classList.toggle('nav-aberta');
+        btn.setAttribute('aria-expanded', aberto);  // acessibilidade
+        // Opcional: mover foco para o primeiro link quando abrir
+        if (aberto) menu.querySelector('a')?.focus();
+      });
+    })();
+  </script>
+
+
+  <body>
+    <!-- Início do corpo do documento (conteúdo visível) -->
+
+    <a class="skip-link oculto" href="#inicio">Ir direto para o conteúdo</a>
+    <!-- Link de acessibilidade para pular o menu e ir ao conteúdo principal -->
+
+    <header class="cabecalho-principal">
+      <!-- Cabeçalho fixo no topo com logo e navegação -->
+      <h1 class="logo-texto">
+        <!-- Título principal da página (logo em texto para SEO) -->
+        <a href="#inicio" class="logo-link"
+          >Núcleo Incubador de Empreendimentos</a
+        >
+        <!-- Link do logo que leva ao topo/início -->
+      </h1>
+      <!-- Fim do título/logo -->
+
+      <nav class="navegacao-principal" aria-label="Navegação principal">
+        <!-- Navegação principal com rótulo para leitores de tela -->
+        <ul class="menu" role="list">
+          <!-- Lista de itens do menu; role explicita lista para tecnologias assistivas -->
+          <li><a href="index.html#inicio">Início</a></li>
+          <!-- Link para a seção de início; aria-current indica página/âncora atual -->
+          <li><a href="index.html#programas">Programas</a></li>
+          <!-- Link para a seção Programas -->
+          <li><a href="index.html#startups">Startups</a></li>
+          <!-- Link para a seção Startups -->
+          <li><a href="index.html#eventos">Eventos</a></li>
+          <!-- Link para a seção Eventos & Agenda -->
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <!-- Link para a seção Sobre -->
+          <li><a href="index.html#contato">Contato</a></li>
+          <!-- Link para a seção Contato -->
+          <li><a href="pre-incubacao.html">Inscrição</a></li>
+
+        </ul>
+        <!-- Fim da lista de menu -->
+      </nav>
+      <!-- Fim da navegação -->
+    </header>
+    <!-- Fim do cabeçalho -->
+
+    <main id="inicio" class="conteudo-principal">
+      <h3>Formulário de Inscrição na Pré-Incubação</h3>
+
+      <p>Preencha os dados abaixo para inscrever seu projeto
+       no programa de pré-incubação do Ifes.</p>
+
+       <form action="/inscricao" method="post">
+        <fieldset>
+            <legend>Dados para inscrição</legend>
+
+            <div class="campo">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" required minlength="3">
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail</label>
+                 <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="campo">
+                <label for="telefone">Telefone/Celular</label>
+                <input type="tel" id="telefone" name="telefone"
+                required
+                pattern="\(\d{2}\) \d{5}-\d{4}"
+                placeholder="(27) 99999-9999"
+                title="Digite no formato (XX) XXXXX-XXXX">
+            </div>
+
+            <div class="campo">
+                 <label for="nascimento">Data de Nascimento</label>
+                 <input type="date" id="nascimento" name="nascimento" required>
+            </div>
+
+            <div class="campo">
+                <label for="escolaridade">Nível de Escolaridade</label>
+                <select id="escolaridade" name="escolaridade" required>
+                     <option value="">Selecione...</option>
+                     <option value="fundamental-incompleto">Ensino Fundamental Incompleto</option>
+                     <option value="fundamental-completo">Ensino Fundamental Completo</option>
+                     <option value="medio-completo">Ensino Médio Completo</option>
+                     <option value="graduacao-andamento">Graduação em Andamento</option>
+                     <option value="graduado">Graduado</option>
+                     <option value="pos-graduado">Pós-Graduado</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="projeto">Nome do Projeto/Ideia</label>
+                <input type="text" id="projeto" name="projeto" required>
+            </div>
+
+            <div class="campo">
+                 <label for="descricao">Descrição do Projeto</label>
+                 <textarea id="descricao" name="descricao"
+                 required minlength="50" maxlength="500"
+                 rows="6"></textarea>  
+            </div>
+
+            <div class="campo">
+                <label for="integrantes">Nº de Integrantes na Equipe</label>
+                 <input type="number" id="integrantes" name="integrantes" required min="1">
+            </div>
+
+            <label class="consentimento">
+                <input type="checkbox" name="termos" required>
+                Li e concordo com os Termos de Uso.
+            </label>
+
+        </fieldset>
+
+        <button type="submit" class="botao-cta">Enviar Inscrição</button>
+        
+       </form>
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+    <footer class="rodape-principal">
+      <!-- Rodapé do site -->
+      <small
+        >© 2025 Instituto Federal do Espírito Santo - Campus de Alegre</small
+      >
+      <!-- Texto legal curto -->
+    </footer>
+    <!-- Fim do rodapé -->
+  </body>
+  <!-- Fim do corpo do documento -->
+</html>
+<!-- Fim do documento HTML -->
