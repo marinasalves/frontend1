@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: rgb(223, 223, 217);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    min-height: 100vh;
+}
+
+#cabecalho-principal{
+    background-color: rgb(88, 84, 84);
+    padding: 20px;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 90px;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    grid-area: header;
+}
+
+#cabecalho-principal h1{
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+#cabecalho-principal nav ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 10px;
+}
+
+#cabecalho-principal nav a{
+    color:aliceblue;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+#cabecalho-principal nav a:hover{
+    color: rgb(88, 84, 84);
+    background-color: aliceblue;
+}
+
+#main-content{
+    max-width: 1500px;
+    margin: 20px auto;
+    border-radius: 15px;
+    padding: 20px;
+    grid-area: main;
+    width: 100%;
+}
+
+#main-content h2{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+#main-content h3{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+#main-content p{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+#main-content figcaption{
+    text-align: center;
+}
+
+#main-content ul{
+    text-align: center;
+    list-style: none;
+    font-size: 1.2rem;
+    
+}
+
+#main-content ol{
+    text-align: center;
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+#main-content li{
+    margin-bottom: 10px;
+}
+
+main img.foto{
+    width: 400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#main-content section {
+    border: 2px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    scroll-margin-top: 100px;
+}
+
+.cards{
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card{
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+}
+
+.etiqueta{
+    position: absolute;
+    top:12px;
+    left: 10px;
+    background-color: rgb(88, 84, 84);
+    color: aliceblue;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px){
+    #cabecalho-principal {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 10px;
+    gap: 15px;
+    }
+    #cabecalho-principal h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    }
+    #cabecalho-principal nav {
+    width: 100%;
+    }
+    #cabecalho-principal nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 0;
+    padding: 0;
+    }
+    #cabecalho-principal nav a {
+    font-size: 0.9rem;
+    padding: 5px;
+    }
+    #main-content section {
+    scroll-margin-top: 140px;
+    }
+    main img.foto {
+    max-width: 100%;
+    height: auto;
+}
+    .etiqueta {
+    top: 10px;
+    left: 10px;
+    width: max-content;
+    font-size: 0.6rem;
+    padding: 4px 8px;
+}
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.campo label{
+    font-weight: 700;
+}
+
+#contato legend {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#contato form{
+    border: 2px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+#contato fieldset{
+    border: none;
+}
+
+.campo input,
+.campo select,
+.campo textarea{
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus{
+    outline: 2px solid rgb(88, 84, 84);
+}
+
+.campo input:user-invalid,
+.campo select:user-invalid,
+.campo textarea:user-invalid{
+    border: 2px solid #b91c1c;
+}
+
+button[type="submit"]{
+    background-color: rgb(88, 84, 84);
+    color: aliceblue;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button[type="submit"]:hover{
+    transform: scale(1.05);
+}
+
+#footer-content{
+    background-color: rgb(88, 84, 84);
+    padding: 20px;
+    text-align: center;
+    color: aliceblue;
+    grid-area: footer;
+}
